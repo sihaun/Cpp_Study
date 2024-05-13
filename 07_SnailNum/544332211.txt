@@ -1,0 +1,40 @@
+544332211
+++1 0 um
+++n 1
+--1 2
+--n 3
+5 9 13 16 19 21 23 24 25
+~5 t0b0l0r0
+~
+find a index algorithm
+
+5.4 5
+4.9 4
+4.4 4
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+    for (int i = 0; i < t; ++i) {
+        int n, a, b;
+        int um{ 0 };
+        int sol{ 0 };
+        int index{ 0 };
+        int s[1000*1000];
+        cin >> n >> a >> b;
+        for (double con = n + 0.3; 0 < int(con); con -= 0.5) {
+            if (um%4 == 0) for (int x = 0; x < int(con); ++x) s[index] = ++sol;
+            else if (um%4 == 1) for (int x = 0; x < int(con); ++x) s[index] = (sol+=n);
+            else if (um%4 == 2) for (int x = 0; x < int(con); ++x) s[index] = --sol;
+            else for (int x = 0; x < int(con); ++x) s[index] = (sol -= n);  
+            ++um, ++index;
+        }
+        for (int k = a; k < b; ++k) cout << s[k];
+        cout << endl;
+
+    }
+    return 0;
+}
